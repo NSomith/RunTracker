@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -33,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         /*no operation is performed so as to disable the same item selected */
         }
 
+        //not showing bottom navigation in some screen
         navHostFragment.findNavController()
                 .addOnDestinationChangedListener { _, destination, _ ->
                     when(destination.id){
@@ -45,10 +47,11 @@ class MainActivity : AppCompatActivity() {
                 }
     }
 
-//    calls when the activity isnt destroyed  meant as entry point for
-//    singleTop activities which already run somewhere else in the stack and therefore can't call onCreate()
+//    calls when the when the activity is already created and from our service notification
+//    we want to go at the main tracking screen
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
+    Log.d("ttt","called newIntent")
         navigateToTrackingFragmentIfNeeded(intent)
     }
 

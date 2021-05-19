@@ -22,7 +22,7 @@ class SetupFragment:Fragment(R.layout.fragment_setup) {
     @Inject
     lateinit var sharedPreferences: SharedPreferences
 
-    @set:Inject //since this is a primitive data type
+    @set:Inject //since this is a primitive data type means it can change
     var isFirstAppOpen = true
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

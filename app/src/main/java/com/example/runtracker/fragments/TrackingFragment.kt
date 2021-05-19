@@ -4,6 +4,7 @@ import android.content.Intent
 import android.icu.util.Calendar
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
@@ -64,6 +65,8 @@ class TrackingFragment:Fragment(R.layout.fragment_tracking) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mapView.onCreate(savedInstanceState)
+        Log.d("viewmodels","address is trackingfrag is $mainViewModel")
+
 
 //        used when we rotate the device
         if(savedInstanceState !=null){

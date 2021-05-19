@@ -94,7 +94,6 @@ class TrackingService :LifecycleService() {
         val pathpoints = MutableLiveData<Polylines>()
 
         val timeRunInMills = MutableLiveData<Long>() //life data for Tracking fragment
-
     }
 
 //    TODO
@@ -153,7 +152,7 @@ class TrackingService :LifecycleService() {
 
     private fun updateNotificationTrackingState(istracking: Boolean){
         val notificationAction = if(istracking) "Pause" else "Resume"
-        val pendingIntent = if(istracking){
+        val pendingIntent = if(istracking){ //this intent when called trigger the onStartCommand() func
             val pauseIntent = Intent(this,TrackingService::class.java).apply {
                 action = ACTION_PAUSE_SERVICE
             }
@@ -167,6 +166,7 @@ class TrackingService :LifecycleService() {
 
         val notificationManger = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
 
+//        below is used to updat the same notification 
         currentNotificationBuilder.javaClass.getDeclaredField("mActions").apply {
             isAccessible = true
             set(currentNotificationBuilder,ArrayList<NotificationCompat.Action>())

@@ -3,6 +3,7 @@ package com.example.runtracker.fragments
 import android.Manifest
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import androidx.fragment.app.Fragment
@@ -30,6 +31,7 @@ class RunFragment:Fragment(R.layout.fragment_run),EasyPermissions.PermissionCall
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        Log.d("viewmodels","address is Runfrag is $mainViewModel")
         requestPermission()
         setupRecylerview()
         fab.setOnClickListener {

@@ -28,6 +28,7 @@ class StatisticFragment:Fragment(R.layout.fragment_statistics) {
         super.onViewCreated(view, savedInstanceState)
         subscribeToObservers()
         setupBarcharts()
+
     }
 
     private fun setupBarcharts(){
